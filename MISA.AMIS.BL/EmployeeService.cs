@@ -18,7 +18,7 @@ namespace MISA.AMIS.BL
 
         public IEnumerable<Employee> Paging(Page page)
         {
-            var sqlCommand = "Proc_FormPaging";
+            var sqlCommand = "Proc_employee_GetPaging";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@limitRow", page.limit);
             parameters.Add("@offsetRow", page.offset);
