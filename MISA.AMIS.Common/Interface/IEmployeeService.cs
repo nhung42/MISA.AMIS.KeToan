@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Common.Interface
 {
-    public class IEmployeeService: IBaseService<Employee>
+    public interface IEmployeeService: IBaseService<Employee>
     {
         public ServiceResult Delete(string entityId)
         {
@@ -34,5 +34,5 @@ namespace MISA.AMIS.Common.Interface
         {
             throw new NotImplementedException();
         }
-    }
+}
 }

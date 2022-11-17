@@ -3,6 +3,7 @@ using MISA.AMIS.Common.Entities;
 using MISA.AMIS.Common.Enums;
 using MISA.AMIS.Common.Interface;
 using MISA.AMIS.Common.Models;
+using MISA.AMIS.Common.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace MISA.AMIS.BL
         protected IDbContext<MISAEntity> dbconnection;
         string _tableName = typeof(MISAEntity).Name;
         ServiceResult _serviceResult;
-        private IDbContext<Employee> dbContext;
+
+        public IDbContext<Employee> Dbconnection { get; }
         #endregion
 
         #region Constructor
@@ -26,17 +28,12 @@ namespace MISA.AMIS.BL
             this.dbconnection = dbconnection;
             _serviceResult = new ServiceResult();
         }
-
-        public BaseService(IDbContext<Employee> dbContext)
-        {
-            this.dbContext = dbContext;
-        }
         #endregion
 
         #region Method
         public IEnumerable<MISAEntity> Get()
         {
-            var sqlCommand = $"Proc_Get{_tableName}";
+            var sqlCommand = $"Proc_Get_{_tableName}";
             return dbconnection.Get(sqlCommand, null, System.Data.CommandType.StoredProcedure);
         }
 
@@ -48,19 +45,19 @@ namespace MISA.AMIS.BL
             {
                 return _serviceResult;
             }
-            var sqlCommand = $"Proc_Insert{_tableName}";
+            var sqlCommand = $"Proc_Insert_{_tableName}";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, parameters, System.Data.CommandType.StoredProcedure);
             if (rowsAffected > 0)
             {
                 _serviceResult.Data = rowsAffected;
                 _serviceResult.MISACode = (int)MISACode.Created;
-                _serviceResult.userMsg = Common.Properties.Resources.UserMsg_Insert_Created;
+                _serviceResult.userMsg = Resources.UserMsg_Insert_Created;
             }
             else if (rowsAffected == 0)
             {
                 _serviceResult.Data = rowsAffected;
                 _serviceResult.MISACode = (int)MISACode.Success;
-                _serviceResult.userMsg = Common.Properties.Resources.UserMsg_Insert_Success;
+                _serviceResult.userMsg = Resources.UserMsg_Insert_Success;
             }
             return _serviceResult;
         }
@@ -69,7 +66,7 @@ namespace MISA.AMIS.BL
         {
             var parameters = MappingData(entity);
             parameters.Add($"@{_tableName}Id", entityId);
-            var sqlCommand = $"Proc_Update{_tableName}";
+            var sqlCommand = $"Proc_Update_{_tableName}";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, parameters, System.Data.CommandType.StoredProcedure);
             if (rowsAffected > 0)
             {
@@ -90,7 +87,7 @@ namespace MISA.AMIS.BL
         {
             var parameters = new DynamicParameters();
             parameters.Add($"@{_tableName}Id", entityId);
-            var sqlCommand = $"Proc_Delete{_tableName}";
+            var sqlCommand = $"Proc_Delete_{_tableName}";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, parameters, System.Data.CommandType.StoredProcedure);
             if (rowsAffected > 0)
             {
@@ -119,7 +116,7 @@ namespace MISA.AMIS.BL
             {
                 var propName = property.Name;
                 var propValue = property.GetValue(entity);
-                parameter.Add($@"{propName}", propValue);
+                parameter.Add($"v_{propName}", propValue);
             }
             return parameter;
         }

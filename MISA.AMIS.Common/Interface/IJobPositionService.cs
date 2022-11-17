@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Common.Interface
 {
-    public class IJobPositionService : IBaseService<JobPosition>
+    public interface IJobPositionService : IBaseService<JobPosition>
     {
         public ServiceResult Delete(string entityId)
         {

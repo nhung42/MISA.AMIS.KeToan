@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.BL
 {
-    public class EmployeeService : BaseService<EmployeeService>
+    public class EmployeeService : BaseService< Employee >, IEmployeeService
     {
-        public EmployeeService(IDbContext<Employee> dbContext) : base(dbContext)
+        public EmployeeService(IDbContext<Employee> dbconnection) : base(dbconnection)
         {
-
         }
 
         public IEnumerable<Employee> Paging(Page page)

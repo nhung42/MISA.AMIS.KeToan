@@ -30,10 +30,7 @@ namespace MISA.AMIS.Common.Models
         /// </summary>
         public MISAGender Gender { get; set; }
 
-        public Employee(MISAGender gender)
-        {
-            Gender = gender;
-        }
+        
 
         /// <summary>
         /// Ngày sinh
@@ -58,7 +55,7 @@ namespace MISA.AMIS.Common.Models
         /// <summary>
         /// Tên vị trí
         /// </summary>
-        public string JobPositonName { get; set; }
+        public string JobPositionName { get; set; }
 
         ///<summary>
         ///Số chứng minh nhân dân
@@ -68,12 +65,12 @@ namespace MISA.AMIS.Common.Models
         /// <summary>
         /// Ngày cấp
         /// </summary>
-        public DateTime IdentityIssueDate { get; set; }
+        public DateTime IdentityIssuedDate { get; set; }
 
         ///<summary>
         ///Nơi cấp
         ///</summary>
-        public string IdentityIssuePlace { get; set; }
+        public string IdentityIssuedPlace { get; set; }
 
         ///<summary>
         ///Số điện thoại
@@ -108,12 +105,12 @@ namespace MISA.AMIS.Common.Models
         /// <summary>
         /// Thời gian tạo
         /// </summary>
-        public DateTime CreateDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         /// <summary>
         /// Người tạo 
         /// </summary>
-        public string CreateBy { get; set; }
+        public string CreatedBy { get; set; }
 
         /// <summary>
         /// Thời gian sửa

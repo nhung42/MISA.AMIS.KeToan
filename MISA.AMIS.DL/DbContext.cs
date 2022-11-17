@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using MISA.AMIS.Common.Interface;
 using MySqlConnector;
 
-namespace MISA.DAL
+namespace MISA.AMIS.DL
 {
     public class DbContext<MISAEntity> : IDbContext<MISAEntity>
     {
@@ -16,29 +16,17 @@ namespace MISA.DAL
 
         #region Constructor
         public DbContext(IConfiguration configuration)
-        {   if(_dbConnection != null)
-            {
-                return;
-            } 
+        {   
             _configuration = configuration;
-            
+            _connectionString = _configuration.GetConnectionString("MISALocalConnection");
+            _dbConnection = new MySqlConnection(_connectionString);
         }
         #endregion
-         public IDbConnection GetDbConnection()
-        {
-            if(_dbConnection != null)
-            {
-                return _dbConnection;
-            }
-            _connectionString = _configuration.GetConnectionString("MISALocalConnection");
-
-            _dbConnection = new MySqlConnection(_connectionString);
-            return _dbConnection;
-        }
+         
         #region Method
         public IEnumerable<MISAEntity> Get(string sqlCommand, DynamicParameters parameters, CommandType commandType)
         {
-            return _dbConnection.Query<MISAEntity>(sqlCommand, parameters, commandType: commandType);
+            return _dbConnection.Query<MISAEntity>(sqlCommand, parameters, commandType : commandType);
         }
 
         public int ExcuteNonQuery(string sqlCommand, DynamicParameters parameters, CommandType commandType)

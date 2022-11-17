@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.BL
 {
-    public class JobPositionService : BaseService<JobPositionService>
+    public class JobPositionService : BaseService<JobPosition>, IJobPositionService
     {
-        public JobPositionService(IDbContext<JobPositionService> dbconnection) : base(dbconnection)
+        public JobPositionService(IDbContext<JobPosition> dbconnection) : base(dbconnection)
         {
         }
     }

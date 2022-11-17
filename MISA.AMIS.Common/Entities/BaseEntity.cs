@@ -29,7 +29,7 @@ namespace MISA.AMIS.Common.Entities
     /// <summary>
     /// Attribute xác định thông tin bị trùng
     /// </summary>
-    /// CreatedBy: NQDat (07/02/2021)
+    /// CreatedBy: NhungDT (14/11/2022)
     [AttributeUsage(AttributeTargets.Property)]
     public class Duplicated : Attribute
     {

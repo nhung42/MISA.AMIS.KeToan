@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AMIS.Common.Interface
 {
-    public class IDepartmentService : IBaseService<Department>
+    public interface IDepartmentService : IBaseService<Department>
     {
         public ServiceResult Delete(string entityId)
         {

@@ -19,7 +19,7 @@ namespace MISA.AMIS.Common.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -39,7 +39,7 @@ namespace MISA.AMIS.Common.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MISA.Common.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MISA.AMIS.Common.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace MISA.AMIS.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;Mã nhân viên&quot;.
-        /// </summary>
-        public static string EmployeeCode {
-            get {
-                return ResourceManager.GetString("EmployeeCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Địa chỉ email.
         /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Mã nhân viên&quot;.
+        /// </summary>
+        public static string EmployeeCode {
+            get {
+                return ResourceManager.GetString("EmployeeCode", resourceCulture);
             }
         }
         
@@ -124,20 +124,20 @@ namespace MISA.AMIS.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên đã tồn tại!.
-        /// </summary>
-        public static string UserMsg_Duplicate_EmployeeCode {
-            get {
-                return ResourceManager.GetString("UserMsg_Duplicate_EmployeeCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Email đã tồn tại!.
         /// </summary>
         public static string UserMsg_Duplicate_Email {
             get {
                 return ResourceManager.GetString("UserMsg_Duplicate_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã nhân viên đã tồn tại!.
+        /// </summary>
+        public static string UserMsg_Duplicate_EmployeeCode {
+            get {
+                return ResourceManager.GetString("UserMsg_Duplicate_EmployeeCode", resourceCulture);
             }
         }
         
@@ -178,20 +178,20 @@ namespace MISA.AMIS.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên không được để trống!.
-        /// </summary>
-        public static string UserMsg_Require_EmployeeCode {
-            get {
-                return ResourceManager.GetString("UserMsg_Require_EmployeeCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Đơn vị không được để trống!.
         /// </summary>
         public static string UserMsg_Require_DepartmentName {
             get {
                 return ResourceManager.GetString("UserMsg_Require_DepartmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã nhân viên không được để trống!.
+        /// </summary>
+        public static string UserMsg_Require_EmployeeCode {
+            get {
+                return ResourceManager.GetString("UserMsg_Require_EmployeeCode", resourceCulture);
             }
         }
         
